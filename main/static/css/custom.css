@@ -1,0 +1,89 @@
+/* Import a modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Apply the font to the whole page for consistency */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6; /* A slightly off-white background */
+}
+
+/* --- Top Header Section (Logo & Search) --- */
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.site-header .navbar-brand {
+    font-size: 2.2rem; /* Slightly larger */
+    font-weight: 900;  /* The heaviest font weight */
+    
+    /* Creates a text gradient */
+    background: linear-gradient(45deg, #0d6efd, #00c6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* --- Sticky Navigation Bar (Links) --- */
+.site-nav {
+    /* Stays at the top when you scroll */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    /* The Glass Effect */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.site-nav .nav-link {
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    padding: 10px 0;
+    margin: 0 20px;
+    transition: color 0.3s ease;
+}
+
+/* Animated Underline on Hover */
+.site-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0d6efd;
+    transition: width 0.4s ease;
+}
+
+.site-nav .nav-link:hover {
+    color: #000;
+}
+
+.site-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- Responsive Styles for Mobile --- */
+@media (max-width: 991.98px) {
+    /* Center the header items on mobile */
+    .site-header .container {
+        flex-direction: column;
+        gap: 1rem; /* Adds space between logo and search bar */
+    }
+
+    /* Style the mobile navigation links */
+    .site-nav .navbar-nav {
+        align-items: center; /* Center links in the collapsed menu */
+        padding-top: 1rem;
+    }
+
+    .site-nav .nav-link {
+        padding: 10px 0; /* Add more vertical space for easier tapping */
+        margin: 0;
+    }
+}

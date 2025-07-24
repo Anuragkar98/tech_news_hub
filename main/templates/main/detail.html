@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">{{ article.title }}</h1>
+            
+            <h6 class="card-subtitle mb-3 text-muted">
+                Category: <a href="{% url 'category_view' article.category.name %}">{{ article.category.name }}</a> | Published on: {{ article.publication_date|date:"F j, Y" }}
+            </h6>
+
+            {% if article.image %}
+                <img src="{{ article.image.url }}" class="img-fluid rounded mb-3" alt="{{ article.title }}">
+            {% endif %}
+
+            <div class="card-text">{{ article.content|safe }}</div>
+        </div>
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to Home</a>
+{% endblock %}
