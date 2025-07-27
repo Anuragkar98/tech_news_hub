@@ -49,11 +49,39 @@
         {% endblock %}
     </main>
 
-    <footer class="bg-dark text-white text-center p-4 mt-5">
+    <footer class="site-footer mt-5 py-5">
         <div class="container">
-            <p>&copy; 2025 Tech News Hub</p>
-            <p>About Us | Contact Us: contact@technewshub.com</p>
+            <div class="row">
+
+                <div class="col-md-4 mb-4">
+                    <h5>About Tech News Hub</h5>
+                    <p class="text-light">Your daily source for the latest and most important news in the world of technology, from gadgets to global tech trends.</p>
+                </div>
+
+                <div class="col-md-2 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled ">
+                        <li><a href="{% url 'home' %}" class="footer-link" >Home</a></li>
+                        {% for c in categories|slice:":4" %}
+                            <li><a href="{% url 'category_view' c.name %}" class="footer-link" >{{ c.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5>Stay Connected</h5>
+                    <div>
+                        <a href="#" class="footer-link me-3" >Facebook</a>
+                        <a href="#" class="footer-link me-3" >Twitter</a>
+                        <a href="#" class="footer-link" >LinkedIn</a>
+                    </div>
+                </div>
+
             </div>
+            <div class="text-center text-secondary border-top pt-3">
+                <p>&copy; 2025 Tech News Hub. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

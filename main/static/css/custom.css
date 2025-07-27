@@ -87,3 +87,23 @@ body {
         margin: 0;
     }
 }
+/* --- Footer Styles --- */
+.site-footer {
+    background-color: #112e3c; /* Dark background */
+    color: #f8f9fa; /* Light text */
+}
+
+.site-footer h5 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-link {
+    color: #adb5bd; /* Muted link color */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+    color: #ffffff; /* White on hover */
+}
