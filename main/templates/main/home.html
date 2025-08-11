@@ -13,15 +13,21 @@
                 <div class="row">
                     {% for article in articles %}
                         <div class="col-md-3 mb-4">
-                            <div class="card h-100">
-                                {% if article.image %}
-                                    <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
-                                {% else %}
-                                    <img src="https://via.placeholder.com/300x200.png?text=No+Image" class="card-img-top" alt="No Image">
-                                {% endif %}
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ article.title }}</h5>
-                                    <a href="{% url 'article_detail' article.id %}" class="btn btn-primary btn-sm mt-auto">Read More</a>
+                            <div class="card h-100 news-card">
+                                <a href="{% url 'article_detail' article.id %}" class="card-link-wrapper">
+                                    {% if article.image %}
+                                        <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
+                                    {% else %}
+                                        <img src="https://via.placeholder.com/300x200.png?text=No+Image" class="card-img-top" alt="No Image">
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ article.title }}</h5>
+                                    </div>
+                                </a>
+                                <div class="card-footer">
+                                    <a href="{% url 'article_detail' article.id %}#comments-section" class="comment-link">
+                                        Leave a comment
+                                    </a>
                                 </div>
                             </div>
                         </div>
